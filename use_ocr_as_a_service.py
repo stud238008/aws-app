@@ -7,7 +7,7 @@ with open('test.jpg', 'rb') as file:
 
 
 response = requests.post(
-    'https://1hene29fmj.execute-api.us-east-1.amazonaws.com/dev/ocr',
+    'https://cqd11iwsmk.execute-api.us-east-1.amazonaws.com/dev/ocr',
     json={
         'image': base64_str
     }
