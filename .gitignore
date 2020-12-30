@@ -7,3 +7,7 @@ build/
 .idea
 venv
 .pytest_cache
+
+*.pyc
+test.json
+test.py
