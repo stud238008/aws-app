@@ -1,3 +1,4 @@
 {
-    "body": "{\"bucket\": \"bitbeat1234567\", \"key\": \"test.jpg\"}"
+    "bucketName": "bitbeat1234567",
+    "objectKey": "test.jpg"
 }

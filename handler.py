@@ -1,6 +1,3 @@
-import base64
-import io
-import json
 import os
 import boto3
 
@@ -14,22 +11,12 @@ if os.getenv('AWS_EXECUTION_ENV') is not None:
 
 
 def ocr(event, context):
-    request_body = json.loads(event['body'])
-    
-    bucket = request_body['bucket']
-    key = request_body['key']
+    key, bucket = event['objectKey'], event['bucketName']
     s3 = boto3.resource('s3')
     obj = s3.Object(bucket, key)
     body = obj.get()['Body']
-    
     data = image_to_data(Image.open(body), output_type=Output.DICT)
-
-    response = {
-        "statusCode": 200,
-        "body": prepare_results(data)
-    }
-
-    return response
+    return prepare_results(data)
 
 def prepare_results(data):
     confidences = data['conf']
